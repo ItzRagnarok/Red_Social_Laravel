@@ -20,19 +20,21 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 use App\Http\Controllers\UserController;
- 
-Route::middleware('auth')->group(function() {
+
+Route::middleware("auth")->group(function(){
+
     Route::get("/usuarios", [UserController::class, "usuarios"]);
- 
-    Route::get("usuarios/crear", [UserController::class, "crear"]);
- 
+
+    Route::get("/usuarios/crear", [UserController::class, "crear"]);
+
     Route::get("/usuarios/{id}", [UserController::class, "buscar"]);
- 
+
+    Route::get("/usuarios/{id}/editar", [UserController::class, "buscarEditar"]);
+
     Route::post("/usuarios", [UserController::class, "almacenar"]);
- 
-    Route::get("/usuarios/{id}/editar", [UserController::class, "mostrar_editar"]);
- 
-    Route::put("/usuarios/{id}", [UserController::class, "editar_usuario"]);
- 
-    Route::delete('/usuarios/{id}', [UserController::class, "borrar_usuario"]);
+
+    Route::delete("/usuarios/{id}", [UserController::class, "borrar"]);
+
+    Route::put("/usuarios/{id}", [UserController::class, "modificar"]);
+
 });

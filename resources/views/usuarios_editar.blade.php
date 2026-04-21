@@ -1,19 +1,20 @@
 <h1>Editar usuario</h1>
 
-<form action="/usuarios/{{ $usuario->id }}" method="POST">
+<form action="/usuarios/{{$usuario->id}}" method="POST">
     @csrf
-    @method('PUT')
-    <p>Nombre: <input type="text" name="name" value="{{ $usuario->name }}"></p>
-    @foreach ($errors->get('name') as $error)
-        <p style="color: red;">{{ $error }}</p>
+    @method("PUT")
+    <p>Nombre: <input type="text" name="name" value="{{$usuario->name}}"></p>
+    @foreach($errors->get("name") as $error) 
+        <div style="color:red">{{$error}}</div>
     @endforeach
-    <p>Email: <input type="email" name="email" value="{{ $usuario->email }}"></p>
-    @foreach ($errors->get('email') as $error)
-        <p style="color: red;">{{ $error }}</p>
+    <p>e-Mail: <input type="text" name="email" value="{{$usuario->email}}"></p>
+    @foreach($errors->get("email") as $error) 
+        <div style="color:red">{{$error}}</div>
     @endforeach
-    <p>Password: <input type="password" name="password"></p>
-    @foreach ($errors->get('password') as $error)
-        <p style="color: red;">{{ $error }}</p>
+    <p>Contraseña: <input type="text" name="password"></p>
+    @foreach($errors->get("password") as $error) 
+        <div style="color:red">{{$error}}</div>
     @endforeach
-    <input type="submit" value="Enviar">
+    <input type="submit" value="modificar">
+
 </form>

@@ -1,28 +1,28 @@
-<h1>Creacion de usuario</h1>
+<h1>Creación de usuario</h1>
 
 <form action="/usuarios" method="POST">
     @csrf
     <p>Nombre: <input type="text" name="name"></p>
-    @foreach ($errors->get('name') as $error)
-        <p style="color: red;">{{ $error }}</p>
+    @foreach($errors->get("name") as $error) 
+        <div style="color:red">{{$error}}</div>
     @endforeach
-    <p>Email: <input type="email" name="email"></p>
-    @foreach ($errors->get('email') as $error)
-        <p style="color: red;">{{ $error }}</p>
+    <p>e-Mail: <input type="text" name="email"></p>
+    @foreach($errors->get("email") as $error) 
+        <div style="color:red">{{$error}}</div>
     @endforeach
-    <p>Password: <input type="password" name="password"></p>
-    @foreach ($errors->get('password') as $error)
-        <p style="color: red;">{{ $error }}</p>
+    <p>Contraseña: <input type="text" name="password"></p>
+    @foreach($errors->get("password") as $error) 
+        <div style="color:red">{{$error}}</div>
     @endforeach
-    <input type="submit" value="Enviar">
-</form>
+    <br>
+    <input type="submit" value="enviar">
 
-<!--
-@if ($errors->any())
+</form>
+<!-- Referencia, esto se puede hacer asi, pero hazlo de la manera superior
+@if($errors->any())
     <ul>
-        @foreach ($errors->all() as $error)
-            <li style="color: red;">{{ $error }}</li>
+        @foreach($errors->all() as $error)
+            <li style="color:red">{{$error}}</li>
         @endforeach
     </ul>
-@endif
--->
+@endif-->
