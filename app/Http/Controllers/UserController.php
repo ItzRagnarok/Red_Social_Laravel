@@ -45,7 +45,7 @@ class UserController extends Controller
         
         $usuario = User::findOrFail($id);
         
-        return view('usuario_editar', [
+        return view('usuarios_editar', [
             "usuario" => $usuario
         ]);
     }
